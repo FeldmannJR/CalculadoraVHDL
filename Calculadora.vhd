@@ -49,7 +49,6 @@ begin
       '0' WHEN "00",
       '1' WHEN others;
   WITH f select
-
     temps<=
       fiosoma when "00",
       fiosoma when "01",
