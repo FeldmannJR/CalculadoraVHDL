@@ -7,16 +7,16 @@ PORT(sel: in std_logic_vector(1 downto 0);
  		 i2: in std_logic;
  		 i3: in std_logic;
  		 i4: in std_logic;
- 		 stdm: out std_logic
+ 		 s: out std_logic
 );
 end Mux4to1;
 
 architecture ArchMux4to1 of Mux4to1 is
 begin
 	WITH sel SELECT
-		stdm<=
-			i1 WHEN "00",
-			i2 WHEN "01",
-			i3 WHEN "10",
-			i4 WHEN "11";
+		s<=
+			i(0) WHEN "00",
+			i(1) WHEN "01",
+			i(2) WHEN "10",
+			i(3) WHEN "11";
 end ArchMux4to1;

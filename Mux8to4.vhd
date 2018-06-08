@@ -14,7 +14,7 @@ begin
 	WITH sel SELECT
 
 		S1<=
-		  R1 WHEN '1',
-			R2 WHEN '0';
+		  R1 WHEN '0',
+		  R2 WHEN '1';
 
 end ArchMux8to4;
