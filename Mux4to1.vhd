@@ -2,10 +2,9 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 
 ENTITY Mux4to1 is
-PORT(
-	sel: in std_logic_vector(1 downto 0);
-	i: in std_logic_vector(3 downto 0);
-	s: out std_logic
+PORT(sel: in std_logic_vector(1 downto 0);
+ 		 i: in std_logic_vector(3 downto 0);
+ 		 s: out std_logic
 );
 end Mux4to1;
 
