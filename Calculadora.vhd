@@ -62,6 +62,9 @@ architecture ArchCalculadora of Calculadora is
     );
   end component;
 begin
+  --Menu
+  Mux16to41 : Mux16to4
+    port map(sel=>f,R1=>fiosoma,R2=>fiosoma,R3=>fiodeslocadord,R4=>fiodeslocadore,S1=>temps);
   soma: Somador
     port map(a0=>a,b0=>b,controle=>f(0),saida=>fiosoma,overflow=>overso);
   desd: DeslocadorDireita
@@ -72,18 +75,12 @@ begin
     port map(AComp=>temps,SComp=>c2);
   Led1: LED
     port map(aLED=>absnum,sLED=>saidaled);
-  Mux16to41 : Mux16to4
-    port map(sel=>f,R1=>fiosoma,R2=>fiosoma,R3=>fiodeslocadord,R4=>fiodeslocadore,S1=>temps);
+  --Transforma o numero em positivo se for negativo, para mostrar no led somente
   Mux8to41: Mux8to4
-    port map(sel=>temps(0),R1=>temps,R2=>c2,S1=>absnum);
+    port map(sel=>temps(3),R1=>temps,R2=>c2,S1=>absnum);
 
    z <= (not temps(0)) and (not temps(1)) and (not temps(2)) and (not temps(3));
-   n <= temps(0);
+   n <= temps(3);
    v <= overdd or overde or overso;
-   -- tem um char que é igual ao ponto e virgula só que não faz a função dele troquei todos os ponto e virgula deles por esse, vai dar erro e não vao entendr pq
-   --Led
-   -- primeira vez que forem compilar vai dar pau
-   -- kkkkkkkkkkkkkkkkkkkkkk
    s <= temps;
-
 end ArchCalculadora;
